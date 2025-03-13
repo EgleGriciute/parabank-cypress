@@ -1,0 +1,21 @@
+{
+  "devDependencies": {
+    "@faker-js/faker": "^9.6.0",
+    "cypress": "^14.1.0",
+    "cypress-ntlm-auth": "^4.2.1"
+  },
+  "scripts": {
+    "start": "npx cypress open",
+    "test": "npx cypress run"
+  },
+  "dependencies": {
+    "cypress-xpath": "^2.0.1",
+    "newman": "^6.2.1"
+  },
+  "name": "cypress-parabank",
+  "version": "1.0.0",
+  "main": "cypress.config.js",
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

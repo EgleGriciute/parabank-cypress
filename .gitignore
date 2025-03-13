@@ -1,0 +1,30 @@
+# Ignore node modules
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# Cypress generated files
+cypress/screenshots/
+cypress/videos/
+cypress/downloads/
+
+# Cypress cache and config
+.cypress_cache/
+cypress.env.json  # If using environment variables (avoid committing sensitive data)
+
+# Logs and reports
+reports/
+mochawesome-report/
+*.log
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# IDE-specific files
+.vscode/
+.idea/
+*.iml

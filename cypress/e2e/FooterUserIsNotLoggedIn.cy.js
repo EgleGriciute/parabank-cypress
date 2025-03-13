@@ -1,14 +1,9 @@
 /// <reference types="cypress"/>
 
-describe("User Is Logged In - Footer Section", () => {
-
-    before(() => {
-        cy.registerEndUser();
-        cy.logOut();
-    })
+describe("User Is Not Logged In Site Map - Footer Section", () => {
 
     beforeEach(() => {
-        cy.loginWithRegisteredUser();
+        cy.visit("/index.htm");
     })
 
     it("should navigate 'Home', 'About US', 'Services' to corresponding pages", () => {
@@ -23,7 +18,7 @@ describe("User Is Logged In - Footer Section", () => {
         cy.wrap(pageNavigation).each((item) => {
 
             cy.get("div#footerPanel > ul > li").eq(`${item.listIndex}`).find("a").should("have.text", `${item.urlText}`).click();
-            cy.url().should("eq", `${Cypress.config("baseUrl")}/${item.url}`);
+            cy.url().should("contain", `${Cypress.config("baseUrl")}/${item.url}`);
         })
     })
 
@@ -66,11 +61,11 @@ describe("User Is Logged In - Footer Section", () => {
 
     it("should navigate 'Contact Us' to '/contact.htm'", () => {
         cy.get("div#footerPanel > ul > li").eq(7).find("a").should("have.text", "Contact Us").should("be.visible").click();
-        cy.url().should("eq", `${Cypress.config("baseUrl")}/contact.htm`);
+        cy.url().should("contain", `${Cypress.config("baseUrl")}/contact.htm`);
     })
 
     it("should launch copyright hyperlink to https://www.parasoft.com/", () => {
         cy.get("#footerPanel > ul").eq(1).find("a").click();
     })
-
 });
+

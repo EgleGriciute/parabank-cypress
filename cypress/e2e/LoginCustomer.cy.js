@@ -24,7 +24,7 @@ describe("Customer Login", () => {
             .and("contain", "Please enter a username and password.");
     })
 
-    it("should return 'Error! Please enter a username and password.' if either username or password is missing", () => {
+    it("should return 'Error! Please enter a username and password.' if username is filled but password is empty", () => {
 
         cy.fixture("sessionInfo.json").then((sessionInfo) => {
             const { userData } = sessionInfo;
@@ -42,7 +42,13 @@ describe("Customer Login", () => {
                 .and("be.visible")
                 .and("contain", "Please enter a username and password.");
 
-            cy.visit("/");
+        });
+    });
+
+    it("should return 'Error! Please enter a username and password.' if password is filled but username is empty", () => {
+
+        cy.fixture("sessionInfo.json").then((sessionInfo) => {
+            const { userData } = sessionInfo;
 
             cy.get("input[name='password']").type(userData.password);
             cy.get("input[value='Log In']").click();

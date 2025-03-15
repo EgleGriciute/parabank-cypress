@@ -2,15 +2,13 @@ const { faker } = require("@faker-js/faker");
 
 Cypress.Commands.add("loadHomePageSuccessfully", () => {
 
-    // should return a success status code (200):
     cy.intercept("GET", "/parabank/index.htm").as("pageLoad");
 
-    // Visit the page:
     cy.visit("/index.htm");
 
     // Wait for the page load and check the status code:
     cy.wait("@pageLoad").then((interception) => {
-        // Get the status code from the interception:
+
         const statusCode = interception.response.statusCode;
 
         // Check that the status code is 200 (OK):

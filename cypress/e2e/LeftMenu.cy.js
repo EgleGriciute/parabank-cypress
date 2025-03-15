@@ -8,6 +8,7 @@ describe("Left menu", () => {
 
     it("should show 'Solutions' as set to a default page: baseUrl (not clickable)", () => {
         cy.get(".Solutions").should("not.have.css", "cursor", "pointer");
+        cy.url().should("contain", "/index.htm");
     })
 
     it("should navigate 'About Us' to: ${baseUrl}/about.htm", () => {

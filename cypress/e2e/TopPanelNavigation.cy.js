@@ -1,6 +1,6 @@
 /// <reference types="cypress"/>
 
-describe("Top Level Navigation", () => {
+describe("Top Panel Navigation", () => {
 
     beforeEach(() => {
         cy.loadHomePageSuccessfully();

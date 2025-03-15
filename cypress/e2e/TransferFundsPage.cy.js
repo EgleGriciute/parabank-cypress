@@ -56,7 +56,6 @@ describe("Transfer Funds Page", () => {
 
     })
 
-
     it("should return 'Error! An internal error has occurred and has been logged.' after filling in a string as amount", () => {
 
         cy.get("input#amount")

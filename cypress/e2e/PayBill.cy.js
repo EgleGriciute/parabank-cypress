@@ -68,7 +68,6 @@ describe("Pay Bill", () => {
 
     });
 
-
     it("should validate fields 'Account #', 'Verify Account #', 'Amount: $' and only numeric values may pass", () => {
 
         const payeeInformation = [

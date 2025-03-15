@@ -65,7 +65,6 @@ describe("Register User", () => {
         cy.get("#transactionTable > tbody > tr > td").eq(3).should("contain", "$100.00");
     });
 
-
     it("should return 'No transactions found.' after filtered by 'Activity Period' set to 'All' and 'type' set to 'Debit' due to inital 'SAVINGS 'account creation", () => {
         cy.openNewAccount("SAVINGS");
         cy.get("#transactionType").select("Debit");
@@ -90,7 +89,7 @@ describe("Register User", () => {
         });
     })
 
-    it("should launch 'Funds Transfer Received' hyperlink and naviagte to: ${baseUrl}transaction.htm?id=${transcationId}", () => {
+    it("should launch 'Funds Transfer Received' hyperlink and navigate to: ${baseUrl}transaction.htm?id=${transcationId}", () => {
         cy.openNewAccount("SAVINGS");
         cy.get("a").contains("Funds Transfer Received").click();
 

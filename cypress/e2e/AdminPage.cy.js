@@ -24,7 +24,7 @@ describe("Admin Page", () => {
 
     })
 
-    it("should return a message 'Database Initialized' and change URL link to: ${baseUrl}/db.htm after'INITIALIZE' button click", () => {
+    it("should return a message 'Database cleaned' and change URL link to: ${baseUrl}/db.htm after'CLEAN' button click", () => {
 
         cy.get("button[value='CLEAN']").click();
         cy.url().should("contain", "db.htm");
@@ -69,7 +69,6 @@ describe("Admin Page", () => {
     it("should check input type radio to be checked/set by default as 'JDBC'", () => {
         cy.get("input#accessMode4[value='jdbc']").should("have.attr", "checked");
     })
-
 
     it("should check if all radio buttons are selectable", () => {
 
@@ -221,7 +220,7 @@ describe("Admin Page", () => {
 
     })
 
-    it("should have a select element of'Loan Provider' and contain option values of: 'Available Funds', 'Down Payment', 'Combined'", () => {
+    it("should have a select element of'Loan Processor' and contain option values of: 'Available Funds', 'Down Payment', 'Combined'", () => {
 
         cy.get("#loanProcessor").children().should("exist");
 

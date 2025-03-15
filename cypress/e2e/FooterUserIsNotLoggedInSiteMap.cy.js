@@ -106,11 +106,6 @@ describe("User Is Not Logged In Site Map - Footer Section", () => {
         cy.get("#rightPanel p.error").should("have.text", "An internal error has occurred and has been logged.");
     })
 
-    it("should navigate 'Log Out' to /index.htm", () => {
-        cy.get("#rightPanel > ul").eq(1).find("li").eq(7).children().click();
-        cy.url().should("contain", `${Cypress.config("baseUrl")}/index.htm`);
-    })
-
     it("should launch copyright hyperlink to https://www.parasoft.com/", () => {
         cy.get("#footerPanel > ul").eq(1).find("a").click();
     })

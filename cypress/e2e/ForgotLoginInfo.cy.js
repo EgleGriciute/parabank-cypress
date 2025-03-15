@@ -5,7 +5,6 @@ describe("Forgot login info", () => {
     before(() => {
         cy.registerEndUser();
         cy.logOut();
-        cy.loginWithRegisteredUser();
     })
 
     beforeEach(() => {

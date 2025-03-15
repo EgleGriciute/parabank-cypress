@@ -1,0 +1,77 @@
+# GitHub Actions workflow for ParaBank Website Testing with Cypress
+# Place this file in .github/workflows/dev-tests.yml
+
+name: ParaBank Dev Tests
+
+on:
+  push:
+    branches: [ dev ]
+  pull_request:
+    branches: [ dev ]
+  workflow_dispatch:  # Allows manual triggering
+
+jobs:
+  cypress-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Cypress run
+        uses: cypress-io/github-action@v6
+        with:
+          browser: chrome
+          record: false
+
+      - name: Upload Cypress screenshots
+        if: failure()
+        uses: actions/upload-artifact@v3
+        with:
+          name: cypress-screenshots
+          path: cypress/screenshots
+
+      - name: Upload Cypress videos
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: cypress-videos
+          path: cypress/videos
+
+  newman-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    needs: cypress-test
+
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run Newman tests
+        run: npx newman run ./collections/*.json --reporters cli,json --reporter-json-export ./reports/newman-results.json
+
+      - name: Upload Newman results
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: newman-results
+          path: reports/

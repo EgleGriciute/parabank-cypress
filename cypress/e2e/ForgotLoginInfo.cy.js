@@ -2,6 +2,11 @@
 
 describe("Forgot login info", () => {
 
+    before(() => {
+        cy.registerEndUser();
+        cy.logOut();
+    })
+
     beforeEach(() => {
         cy.visit("/lookup.htm");
     })

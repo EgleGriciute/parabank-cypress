@@ -5,8 +5,8 @@
     "cypress-ntlm-auth": "^4.2.1"
   },
   "scripts": {
-    "start": "npx cypress open",
-    "test": "npx cypress run"
+    "cypress:open": "npx cypress open",
+    "cypress:run": "npx cypress run"
   },
   "dependencies": {
     "cypress-xpath": "^2.0.1",

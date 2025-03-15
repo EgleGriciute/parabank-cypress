@@ -18,9 +18,9 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '18'
-          cache: 'npm'
+          # Removed cache: 'npm' as there's no lock file
       - name: Install dependencies
-        run: npm ci
+        run: npm install
       - name: Cypress run
         run: npm run cypress:run
       - name: Upload Cypress screenshots
@@ -48,8 +48,8 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '18'
-          cache: 'npm'
+          # Removed cache: 'npm' as there's no lock file
       - name: Install dependencies
-        run: npm ci
+        run: npm install
       - name: Cypress open
         run: npm run cypress:open

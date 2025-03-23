@@ -1,16 +1,7 @@
 # ParaBank Website Testing Portfolio 💸
 
 ## Overview
-This repository contains a comprehensive test suite for the ParaBank demonstration website using Cypress. The test suite includes end-to-end tests, API tests, and form validations to ensure the functionality of the ParaBank web application.
-
-## Table of Contents
-- [Installation](#installation)
-- [Running Tests](#running-tests)
-- [Test Structure](#test-structure)
-- [Dependencies](#dependencies)
-- [Test Reports](#test-reports)
-- [CI/CD Integration](#cicd-integration)
-- [Contributing](#contributing)
+This repository contains a comprehensive test suite for the ParaBank (https://parabank.parasoft.com/parabank/index.htm) demonstration website using Cypress. The test suite includes end-to-end tests, API tests, and form validations to ensure the functionality of the ParaBank web application.
 
 ## Installation
 

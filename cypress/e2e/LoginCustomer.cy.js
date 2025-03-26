@@ -8,7 +8,6 @@ describe("Customer Login", () => {
 
     it("should login with correct credentials: username and password", () => {
         cy.loginWithRegisteredUser();
-        cy.visit("/overview.htm");
     });
 
     it("should return 'Error! Please enter a username and password.' after leaving input fields empty", () => {

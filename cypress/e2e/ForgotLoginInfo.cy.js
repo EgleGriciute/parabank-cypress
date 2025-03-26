@@ -21,7 +21,7 @@ describe("Forgot login info", () => {
 
     it("should result in 'Your login information was located successfully. You are now logged in.' and render 'Username' and 'Password' after a successful form submission", () => {
 
-        cy.fixture("sessioninfo.json").then((sessioninfo) => {
+        cy.fixture("sessionInfo.json").then((sessioninfo) => {
 
             const { userData } = sessioninfo;
             cy.get("input#firstName").type(userData.firstName);
@@ -66,16 +66,17 @@ describe("Forgot login info", () => {
 
     it("should return 'Error! The customer information provided could not be found.' after filling in invalid data", () => {
 
-        cy.fixture("sessioninfo.json").then((sessioninfo) => {
+        cy.fixture("sessionInfo.json").then((sessioninfo) => {
 
             const { userData } = sessioninfo;
-            cy.get("input#firstName").type("test");
-            cy.get("input#lastName").type("test");
-            cy.get("input#address\\.street").type("test");
-            cy.get("input#address\\.city").type("test");
-            cy.get("input#address\\.state").type("test");
-            cy.get("input#address\\.zipCode").type("test");
-            cy.get("input#ssn").type("test");
+
+            cy.get("input#firstName").type("*" + userData.firstName);
+            cy.get("input#lastName").type("*" + userData.lastName);
+            cy.get("input#address\\.street").type("*" + userData.address);
+            cy.get("input#address\\.city").type("*" + userData.city);
+            cy.get("input#address\\.state").type("*" + userData.state);
+            cy.get("input#address\\.zipCode").type("*" + userData.zipCode);
+            cy.get("input#ssn").type("*" + userData.ssn);
 
             cy.get("input[value='Find My Login Info']").click();
 

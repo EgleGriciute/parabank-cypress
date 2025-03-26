@@ -128,8 +128,6 @@
 17.6. Verify loan approval with 'Loan Amount $' value is missing
 17.7. Test loan approval with positive amount with 'Down Payment: $' value is missing
 
-93
-
 ## 18. Footer Navigation Tests
 18.1. Verify all navigation links function correctly when user is not logged in
 18.2. Test all navigation links function correctly when user is logged in

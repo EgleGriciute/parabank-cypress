@@ -1,6 +1,6 @@
 /// <reference types="cypress"/>
 
-describe("Register User", () => {
+describe("Open New Account", () => {
 
     before(() => {
         cy.registerEndUser();

@@ -7,62 +7,52 @@ describe("Admin Page", () => {
     })
 
     it("should return 'Settings saved successfully.' after 'SUBMIT' button click", () => {
-
         cy.get("input[value='Submit']").click();
+        cy.get("#rightPanel > p").should("contain", "Settings saved successfully.");
+    });
 
-        cy.get("#rightPanel > p")
-            .contains("Settings saved successfully.")
+    // Database/ JMS Service:
+    it("should return a message 'Database Initialized' and change URL link after 'INITIALIZE' button click", () => {
+        cy.get("button[value='INIT']").click();
+        cy.url().should("include", "/db.htm");
+    });
+
+    it("should return a message 'Database cleaned' and change URL link after 'CLEAN' button click", () => {
+        cy.get("button[value='CLEAN']").click();
+        cy.url().should("include", "/db.htm");
+    });
+
+    it("should indicate JMS Service Status as set to default: 'Stopped'", () => {
+        cy.contains("td", "Stopped", { timeout: 10000 })
             .should("exist")
             .and("be.visible");
     });
 
-    // Database/ JMS Service:
-    it("should return a message 'Database Initialized' and change URL link to: ${baseUrl}/db.htm after'INITIALIZE' button click", () => {
-
-        cy.get("button[value='INIT']").click();
-        cy.url().should("contain", "db.htm");
-
-    })
-
-    it("should return a message 'Database cleaned' and change URL link to: ${baseUrl}/db.htm after'CLEAN' button click", () => {
-
-        cy.get("button[value='CLEAN']").click();
-        cy.url().should("contain", "db.htm");
-
-    })
-
-    it("should indicate JMS Service Status as set to default: 'Stopped'", () => {
-        cy.get("tr> td")
-            .contains("Stopped")
+    it("should switch status to: 'Stopped', and URL will contain 'startup.success' after a 'SHUTDOWN' button click", () => {
+        cy.get("input[value='Startup']", { timeout: 10000 })
             .should("exist")
-            .and("be.visible");
-    })
+            .and("be.visible")
+            .click();
 
-    it("should switch status to: 'Stopped', and URL will contain 'shutdown.success' after a 'SHUTDOWN' button click", () => {
-
-        cy.get("input[value='Startup']").click();
-
-        cy.get("td")
-            .contains("Running")
+        cy.contains("td", "Running", { timeout: 10000 })
             .should("exist")
             .and("be.visible");
 
-        cy.url()
-            .should("contain", "startup.success")
-    })
+        cy.url().should("include", "startup.success");
+    });
 
     it("should switch status to: 'Running', and URL will contain 'shutdown.success' after a 'STARTUP' button click", () => {
+        cy.get("input[value='Shutdown']", { timeout: 10000 })
+            .should("exist")
+            .and("be.visible")
+            .click();
 
-        cy.get("input[value='Shutdown']").click();
-
-        cy.get("td")
-            .contains("Stopped")
+        cy.contains("td", "Stopped", { timeout: 10000 })
             .should("exist")
             .and("be.visible");
 
-        cy.url()
-            .should("contain", "shutdown.success")
-    })
+        cy.url().should("include", "shutdown.success");
+    });
 
     // Data Access Mode:
 

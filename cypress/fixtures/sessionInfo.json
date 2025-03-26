@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "sessionId": "user-session-4643",
   "userData": {
     "firstName": "Joshuah",
@@ -11,5 +12,19 @@
     "ssn": 449061937,
     "username": "Winona_Hayes",
     "password": "Z5hIYu9bB7FS1YF"
+=======
+  "sessionId": "user-session-3640",
+  "userData": {
+    "firstName": "Mack",
+    "lastName": "Bosco",
+    "address": "5944 Tudor Close",
+    "city": "Botsfordworth",
+    "state": "Iowa",
+    "zipCode": "18293",
+    "phoneNumber": "+16555268097",
+    "ssn": 152125564,
+    "username": "Adrienne56",
+    "password": "ry5S_5jIK0b8CxH"
+>>>>>>> dev
   }
 }

@@ -104,7 +104,6 @@ describe("Pay Bill", () => {
 
             cy.get("input[value='Send Payment']").click();
 
-
             cy.get("span#validationModel-account-invalid")
                 .should("be.visible")
                 .and("have.text", "Please enter a valid number.");

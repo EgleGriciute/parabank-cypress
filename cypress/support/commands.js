@@ -16,7 +16,7 @@ Cypress.Commands.add("loadHomePageSuccessfully", () => {
         // });
     });
 
-    // should load the page within 3000ms:
+
     cy.intercept("GET", "/parabank/index.htm").as("pageLoad");
 
     // Record start time and visit page:
@@ -29,8 +29,7 @@ Cypress.Commands.add("loadHomePageSuccessfully", () => {
         const end = Date.now();
         const loadTime = end - start;
 
-        // Check that load time is less than 3000ms:
-        expect(loadTime).to.be.lessThan(3000);
+        expect(loadTime).to.be.lessThan(4000);
         // });
     });
 

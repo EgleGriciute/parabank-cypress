@@ -1,6 +1,6 @@
 /// <reference types="cypress"/>
 
-describe("Left Menu", () => {
+describe("Right Menu", () => {
 
     beforeEach(() => {
         cy.loadHomePageSuccessfully();
